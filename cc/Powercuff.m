@@ -42,11 +42,13 @@
     NSString *const powercuffSettingsPath = @"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist";
     if (selected) {
         [[NSUserDefaults standardUserDefaults] setObject:@3 forKey:@"PowerMode" inDomain:powercuffSettingsPath];
-        [[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:powercuffSettingsPath];
+        [[NSUserDefaults standardUserDefaults] setObject:@3 forKey:@"PowerModeApp" inDomain:powercuffSettingsPath];
+        [[NSUserDefaults standardUserDefaults] setObject:@3 forKey:@"PowerModeOff" inDomain:powercuffSettingsPath];
         CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)settingsChanged, NULL, NULL, YES);
     } else {
         [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:@"PowerMode" inDomain:powercuffSettingsPath];
-        [[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:powercuffSettingsPath];
+        [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:@"PowerModeApp" inDomain:powercuffSettingsPath];
+        [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:@"PowerModeOff" inDomain:powercuffSettingsPath];
         CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)settingsChanged, NULL, NULL, YES);
     }
 }
