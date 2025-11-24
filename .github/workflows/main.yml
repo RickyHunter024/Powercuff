@@ -53,7 +53,7 @@ jobs:
           git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/theos/sdks/
           cd sdks
           # Comet requires iOS 14+, so 16.5 is perfect
-          git sparse-checkout set --no-cone iPhoneOS16.5.sdk
+          git sparse-checkout set --no-cone iPhoneOS14.5.sdk
           git checkout
           mv *.sdk $THEOS/sdks
         env:
